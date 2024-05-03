@@ -2,23 +2,22 @@ import json
 import webbrowser
 import random
 
+
 def printJson(dict):
     print(json.dumps(dict, sort_keys=False, indent=2))
-username = input("What is your computer username?")
-windows = rf"C:\\Users\\{username}\AppData\\Local\\Google\\Chrome\\User Data\Default\Bookmarks"
-mac = f"/Users/{username}/Library/Application Support/Google/Chrome/Default/Bookmarks"
+
+windows = r"C:\\Users\\tw\\AppData\\Local\\Google\\Chrome\\User Data\Default\Bookmarks"
+mac = "/Users/oliverwolff/Library/Application Support/Google/Chrome/Default/Bookmarks"
 
 raw_data = open(windows, "r")
 object_data = json.loads(raw_data.read())
 
-del object_data["sync_metadata"]
 del object_data["checksum"]
 
 bookmarks = object_data["roots"]["bookmark_bar"]["children"]
 
 unused_folders = []
 urls = []
-
 
 for bookmark in bookmarks:
     if "children" in bookmark:
