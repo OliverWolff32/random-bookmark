@@ -4,11 +4,11 @@ import random
 
 def printJson(dict):
     print(json.dumps(dict, sort_keys=False, indent=2))
+username = input("What is your computer username?")
+windows = rf"C:\\Users\\{username}\AppData\\Local\\Google\\Chrome\\User Data\Default\Bookmarks"
+mac = f"/Users/{username}/Library/Application Support/Google/Chrome/Default/Bookmarks"
 
-windows_file_loc = r"C:\\Users\\tw\AppData\\Local\\Google\\Chrome\\User Data\Default\Bookmarks"
-mac_file_loc = "/Users/oliverwolff/Library/Application Support/Google/Chrome/Default/Bookmarks"
-
-raw_data = open(windows_file_loc, "r")
+raw_data = open(windows, "r")
 object_data = json.loads(raw_data.read())
 
 del object_data["sync_metadata"]
