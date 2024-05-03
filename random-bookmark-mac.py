@@ -4,9 +4,9 @@ import random
 
 def printJson(dict):
     print(json.dumps(dict, sort_keys=False, indent=2))
-username = input("What is your computer username?")
-windows = rf"C:\\Users\\{username}\AppData\\Local\\Google\\Chrome\\User Data\Default\Bookmarks"
-mac = f"/Users/{username}/Library/Application Support/Google/Chrome/Default/Bookmarks"
+
+windows = rf"C:\\Users\\tw\AppData\\Local\\Google\\Chrome\\User Data\Default\Bookmarks"
+mac = f"/Users/oliverwolff/Library/Application Support/Google/Chrome/Default/Bookmarks"
 
 raw_data = open(mac, "r")
 object_data = json.loads(raw_data.read())
